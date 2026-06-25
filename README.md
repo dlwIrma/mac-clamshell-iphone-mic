@@ -1,12 +1,16 @@
 # mac-clamshell-iphone-mic
 
-Automatically prefer an iPhone Continuity Microphone when a MacBook is in clamshell mode.
+Prefer Apple's iPhone Continuity Microphone when a MacBook is in clamshell mode.
 
-合盖时自动优先使用 iPhone 连续互通麦克风；开盖时不改动当前输入源。
+合盖时自动优先使用 Apple 连续互通里的 iPhone 麦克风；开盖时不改动当前输入源。
 
 ## 中文说明
 
-这个小工具适合这样的场景：MacBook 合盖接外接显示器使用时，内置麦克风位置不理想，希望系统输入源自动切到某台 iPhone 的麦克风。
+这个项目的初衷是解决 Apple 设备“连续互通”功能里的一个小问题：iPhone 已经作为连续互通麦克风出现在 macOS 里，但系统不一定会在合盖外接显示器时自动把输入源切过去。这个脚本会在 MacBook 合盖时，主动把输入源切到你配置的 iPhone 连续互通麦克风。
+
+它主要针对 Apple Continuity / 连续互通的 iPhone Microphone。第三方麦克风如果能被 macOS 作为普通 CoreAudio 输入设备识别，并且有稳定 UID，理论上也可能可用，但这不是本项目的目标场景，也没有测试保证。
+
+适合这样的场景：MacBook 合盖接外接显示器使用时，内置麦克风位置不理想，希望系统输入源自动切到某台 iPhone 的麦克风。
 
 它的做法很简单：
 
@@ -92,6 +96,10 @@ INTERVAL=30 ./scripts/install-launch-agent.sh
 ```
 
 ## English
+
+This project was created for a specific Apple Continuity issue: an iPhone is available to macOS as a Continuity Microphone, but macOS does not always automatically choose it when the MacBook is used in clamshell mode. The script nudges the system input source to the configured iPhone Continuity Microphone only while the lid is closed.
+
+It is primarily intended for Apple's Continuity / iPhone Microphone feature. Third-party microphones may work if macOS exposes them as regular CoreAudio input devices with stable UIDs, but that is not the target use case and is not tested or guaranteed.
 
 This tiny utility is for MacBook clamshell setups where the built-in microphone is poorly positioned and an iPhone Continuity Microphone is the better input device.
 
